@@ -1,0 +1,22 @@
+{
+  "name": "Ursa-Bot",
+  "version": "1.0.2",
+  "description": "Uma simples bot para o discord",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SrCrow#1435",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "0.1.0-canary.0",
+    "axios": "^0.21.4",
+    "discord-api-types": "^0.23.1",
+    "discord-image-generation": "^1.4.9",
+    "discord.js": "^12.5.1",
+    "jimp": "^0.16.1",
+    "moment": "^2.29.1",
+    "quick.db": "^7.1.3"
+  }
+}
