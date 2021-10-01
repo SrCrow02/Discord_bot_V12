@@ -12,11 +12,6 @@ exports.run = async (client, message, args) => {
         let avatar = message.author.displayAvatarURL({format: 'png'});
         let user = client.users.cache.get(args[0]) || message.mentions.users.first() ||  message.author;
         
-        let nivel = db.fetch(`nivel_empresa_${user.id}`)
-
-        let calc = nivel * 50;
-
-        
         //Tempo de espera pra cada daily
         let tempo_esgotado = 84000000;
         let author = await db.fetch(`worked_${user.id}`);
@@ -36,15 +31,13 @@ exports.run = async (client, message, args) => {
             let amount = Math.floor(Math.random() * 100) + 300;
             let ruby = Math.floor(Math.random() * 5) + 1;
 
-            const math = amount + calc;
-
             //Embed sucesso
             let embed = new Discord.MessageEmbed()
             .setColor('GOLD')
-            .setDescription(`⭐ | Parabéns ${user}, você ganhou ||**${math}**|| no daily diário! Espere mais **1 dia** para realizar outro daily.`);
+            .setDescription(`⭐ | Parabéns ${user}, você ganhou ||**${amount}**|| no daily diário! Espere mais **1 dia** para realizar outro daily.`);
 
             //Adicionando dinheiro
-            db.add(`coins_${user.id}`, math)
+            db.add(`coins_${user.id}`, amount)
             db.set(`worked_${user.id}`, Date.now())
 
             message.channel.send(`${user}`, embed);
